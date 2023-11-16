@@ -9,7 +9,7 @@ N/A
 ### Metaprogramming
 Go generate and Jennifer were both explored as options for a
 
-- [Go generate](GOGENERATE.md)
+- [Go generate](docs/GOGENERATE.md)
 - [Go Jennifer](https://github.com/dave/jennifer)
 
 ### AI Assisted Code Generation
@@ -21,7 +21,7 @@ assignment "Testing Go for Statistics". The chat logs are linked below. Within t
 following "->" with the response below following "answer:". Large blocks of irrelevant response text are omitted to save
 space.
 
-- [ChatGPT Log](CHATGPT.md)
+- [ChatGPT Log](docs/CHATGPT.md)
 - [Google Bard Log](#)
 
 ### References
