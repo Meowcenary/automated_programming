@@ -27,6 +27,7 @@ space.
 ### References
 - Go jennifer - https://github.com/dave/jennifer
 - Go generate package docs - https://pkg.go.dev/cmd/go#hdr-Generate_Go_files_by_processing_source
+- Go convert templates to strings - https://coderwall.com/p/ns60fq/simply-output-go-html-template-execution-to-strings
 - Go blog on Go generate - https://go.dev/blog/generate
 - Go generate proposal - https://go.googlesource.com/proposal/+/refs/heads/master/design/go-generate.md
 - Generating code with go generate - Daniel Milde - https://www.youtube.com/watch?v=ClW_g1iDGi4
