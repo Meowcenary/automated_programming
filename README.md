@@ -3,11 +3,10 @@ Clone  with git
 - HTTP: `git clone https://github.com/Meowcenary/automated_programming.git`
 - SSH: `git clone git@github.com:Meowcenary/automated_programming.git`
 
-### Install Dependencies
-N/A
-
 ### Metaprogramming
-Go generate and Jennifer were both explored as options for a
+Go's generate tool was used to implement a simple metaprogramming example that can be viewed at:
+`go_generate/stats_test_generator.go`. The package "Jennifer" was also explored, but given time constraints this was
+left in an incomplete state.
 
 - [Go generate](docs/GOGENERATE.md)
 - [Go Jennifer](https://github.com/dave/jennifer)

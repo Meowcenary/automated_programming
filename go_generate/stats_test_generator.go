@@ -116,21 +116,6 @@ func roundFloatTemplate() string {
 `
 }
 
-func roundCoordinatesTemplate() string {
-	return `func roundCoordinates(coordinates []stats.Coordinate, precision uint) []stats.Coordinate {
-		roundedCoordinates := make([]stats.Coordinate, len(coordinates))
-		for i, coord := range coordinates {
-			roundedCoordinates[i] = stats.Coordinate{
-				X: roundFloat(coord.X, precision),
-				Y: roundFloat(coord.Y, precision),
-			}
-		}
-		return roundedCoordinates
-	}
-
-`
-}
-
 func testAnscombeLinearRegressionGradientAndInterceptsTemplate() string {
 	return `func TestAnscombeLinearRegressionGradientsAndIntercepts(t *testing.T) {
     type test struct {
@@ -190,6 +175,19 @@ func testAnscombeLinearRegressionCoefficientsTemplate() string {
                      fmt.Sprint(test.want))
         }
     }
+}
+
+`
+}
+
+func benchmarkTemplate() string {
+	return `var blackhole []stats.Coordinate
+func BenchmarkAnscombeLinearRegression(b *testing.B) {
+		result, _ := stats.LinearRegression(Anscombe1())
+    result, _ = stats.LinearRegression(Anscombe2())
+    result, _ = stats.LinearRegression(Anscombe3())
+    result, _ = stats.LinearRegression(Anscombe4())
+    blackhole = result
 }
 
 `
@@ -332,8 +330,9 @@ func main() {
 
 	// Combine the strings to form the completed Go file
 	combinedResult := headTemplateStr() + anscombeFunctionsResult + coefficientsResult + findGradientAndInterceptTemplate() +
-		roundFloatTemplate() + roundCoordinatesTemplate() + testAnscombeLinearRegressionGradientAndInterceptsTemplate() +
-		testAnscombeLinearRegressionCoefficientsTemplate()
+		roundFloatTemplate() + testAnscombeLinearRegressionGradientAndInterceptsTemplate() + testAnscombeLinearRegressionCoefficientsTemplate() +
+		benchmarkTemplate()
+
 	// Write the combined result to a file
 	fileName := "stats_test.go"
 	err = writeToFile(fileName, combinedResult)
@@ -341,5 +340,5 @@ func main() {
 		fmt.Println("Error writing to file:", err)
 		os.Exit(1)
 	}
-	fmt.Println("Combined result written to", fileName)
+	fmt.Println("Combined template result written to:", fileName)
 }
