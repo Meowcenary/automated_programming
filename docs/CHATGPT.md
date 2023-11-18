@@ -414,3 +414,5 @@ func main() {
 In this corrected version, the linearRegression function accepts a slice of stats.Coordinate types and extracts the x
 and y values from them before performing linear regression using stats.LinearRegression. I hope this meets your
 requirements.
+
+**->**
